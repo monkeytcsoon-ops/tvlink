@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TVLink 直播频道</title>
+    <meta name="description" content="TVLink 直播频道播放器" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-row">
+          <div class="brand-mark">TV</div>
+          <div>
+            <p class="eyebrow">频道导航</p>
+            <h1>TVLink</h1>
+          </div>
+        </div>
+
+        <div class="search-box">
+          <input id="searchInput" type="text" placeholder="搜索频道名称或分类" aria-label="搜索频道" />
+        </div>
+
+        <nav id="channelList" class="channel-list" aria-label="频道列表"></nav>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow muted">正在播放</p>
+            <h2 id="channelTitle">TVLink</h2>
+          </div>
+          <button id="randomChannelBtn" class="ghost-btn" type="button">随机频道</button>
+        </header>
+
+        <section class="player-card">
+          <div class="video-wrap">
+            <video id="player" controls playsinline preload="metadata"></video>
+            <div id="fallbackMessage" class="fallback-message hidden">
+              当前流地址不可直接播放，您也可以手动填入 M3U8 / HLS 链接。
+            </div>
+          </div>
+        </section>
+
+        <section class="toolbar">
+          <label class="input-group" for="customUrlInput">
+            <span>自定义流地址</span>
+            <input id="customUrlInput" type="url" placeholder="https://example.com/live.m3u8" />
+          </label>
+          <button id="applyUrlBtn" class="primary-btn" type="button">应用</button>
+        </section>
+
+        <section class="meta-grid">
+          <article class="meta-card">
+            <span class="meta-label">分类</span>
+            <strong id="channelCategory">综合</strong>
+          </article>
+          <article class="meta-card">
+            <span class="meta-label">语言</span>
+            <strong id="channelLanguage">中文</strong>
+          </article>
+          <article class="meta-card">
+            <span class="meta-label">来源</span>
+            <strong id="channelSource">本地示例</strong>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
